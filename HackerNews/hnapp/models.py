@@ -39,34 +39,6 @@ class Comment(models.Model):
 
     def __unicode__(self):
         return f"Comment by {self.user.username}"
-'''
-class Comment(models.Model):
-    creator = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    content = models.TextField()
 
-    def __unicode__(self):
-        return f"Comment by {self.user.username}"
-'''
- 
-'''
-class UserInfo(models.Model):
-    creator = models.ForeignKey(User, on_delete=models.CASCADE)
-    created_on = models.DateTimeField(auto_now_add=True)
-
-    def __unicode__(self):
-        return f"{self.user.username}"
-
-class PostsInfo(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    votes = models.IntegerField()
-    comments = models.IntegerField()
-
-    def count_votes(self):
-        self.votes = Vote.objects.filter(post = self.post).count()
-    
-    def count_comments(self):
-        self.comments = Comment.objects.filter(post = self.post).count()
-'''
 
 
